@@ -1,0 +1,56 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Goi mon Online</title>
+        {% else %}
+        <title>Goi mon online</title>
+        {% endif %}
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        
+
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  {% if title %}
+        <title>{{ title }} - Goi mon Online</title>
+        {% else %}
+        <title>Goi mon online</title>
+    {% endif %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{{url_for('auth.static', filename='style.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+    
+</div>
+</body>
+</html>
